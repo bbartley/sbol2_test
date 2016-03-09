@@ -13,15 +13,19 @@ int main()
 {
 	Document& doc = *new Document();
 
+    std::string v = "1.0.0";  // Versioning uses Maven semantics
+    
 	// Here we use CamelCase for displayID's, to distinguish Definitions from instances
-	ModuleDefinition& CRISPRTemplate = *new ModuleDefinition(BASE_URI, "CRISPRTemplate", "", "", "", "", "1.0.0");
-    ComponentDefinition& Cas9 = *new ComponentDefinition(BASE_URI, "Cas9", BIOPAX_PROTEIN);
-    ComponentDefinition& GuideRNA = *new ComponentDefinition(BASE_URI, "GuideRNA", BIOPAX_RNA);
-	ComponentDefinition& Cas9GuideRNAComplex = *new ComponentDefinition(BASE_URI, "Cas9-GuideRNAComplex", BIOPAX_COMPLEX);
-	ComponentDefinition& TargetPromoter = *new ComponentDefinition(BASE_URI, "TargetPromoter", BIOPAX_DNA, SO_PROMOTER);
-    ComponentDefinition& TargetGene = *new ComponentDefinition(BASE_URI, "TargetGene", BIOPAX_DNA, SO_CDS);
-    ComponentDefinition& TargetProtein = *new ComponentDefinition(BASE_URI, "TargetProtein", BIOPAX_PROTEIN);
+    ModuleDefinition& CRISPRTemplate = *new ModuleDefinition(BASE_URI, "CRISPRTemplate", v);
+    ComponentDefinition& Cas9 = *new ComponentDefinition(BASE_URI, "Cas9", v, BIOPAX_PROTEIN);
+    ComponentDefinition& GuideRNA = *new ComponentDefinition(BASE_URI, "GuideRNA", v, BIOPAX_RNA);
+	ComponentDefinition& Cas9GuideRNAComplex = *new ComponentDefinition(BASE_URI, "Cas9-GuideRNAComplex", v, BIOPAX_COMPLEX);
+	ComponentDefinition& TargetPromoter = *new ComponentDefinition(BASE_URI, "TargetPromoter", v, BIOPAX_DNA);
+    ComponentDefinition& TargetGene = *new ComponentDefinition(BASE_URI, "TargetGene", v, BIOPAX_DNA);
+    ComponentDefinition& TargetProtein = *new ComponentDefinition(BASE_URI, "TargetProtein", v, BIOPAX_PROTEIN);
 
+    TargetPromoter.types.set(SO_PROMOTER);
+    TargetGene.types.set(SO_CDS);
     
     doc.add<ModuleDefinition>(CRISPRTemplate);
     doc.add<ComponentDefinition>(Cas9);
@@ -31,9 +35,9 @@ int main()
     doc.add<ComponentDefinition>(TargetGene);
     doc.add<ComponentDefinition>(TargetProtein);
 
-    Interaction& Cas9ComplexFormation = *new Interaction(BASE_URI, "complex_formation", SBO_NONCOVALENT_BINDING);
-    Interaction& CRISPRRepression = *new Interaction(BASE_URI, "gene_inhibition", SBO_INHIBITION);
-    Interaction& TargetProduction = *new Interaction(BASE_URI, "target_production", SBO_GENETIC_PRODUCTION);
+    Interaction& Cas9ComplexFormation = *new Interaction(BASE_URI, "complex_formation", v, SBO_NONCOVALENT_BINDING);
+    Interaction& CRISPRRepression = *new Interaction(BASE_URI, "gene_inhibition", v, SBO_INHIBITION);
+    Interaction& TargetProduction = *new Interaction(BASE_URI, "target_production", v, SBO_GENETIC_PRODUCTION);
 
     CRISPRTemplate.interactions.add(Cas9ComplexFormation);
     
@@ -58,9 +62,13 @@ int main()
     target_protein.definition.setReference(BASE_URI, "TargetProtein");
     
     // Here we represent ComplexFormation as the reaction A + B = AB
-	Participation& A = *new Participation(BASE_URI, "A", SBO_REACTANT, "sys-bio.org/cas9/1.0.0");
-	Participation& B = *new Participation(BASE_URI, "B", SBO_REACTANT, "sys-bio.org/guide_rna/1.0.0");
-	Participation& AB = *new Participation(BASE_URI, "AB", SBO_PRODUCT, "sys-bio.org/cas9-guide_rna_complex/1.0.0");
+	Participation& A = *new Participation(BASE_URI, "A", v, "sys-bio.org/cas9/1.0.0");
+	Participation& B = *new Participation(BASE_URI, "B", v, "sys-bio.org/guide_rna/1.0.0");
+	Participation& AB = *new Participation(BASE_URI, "AB", v, "sys-bio.org/cas9-guide_rna_complex/1.0.0");
+    A.roles.set( SBO_REACTANT );
+    B.roles.set( SBO_REACTANT );
+    AB.roles.set( SBO_PRODUCT );
+    
     Cas9ComplexFormation.participations.add(A);
 	Cas9ComplexFormation.participations.add(B);
 	Cas9ComplexFormation.participations.add(AB);
@@ -105,9 +113,11 @@ int main()
     CRISPRRepression.participations["sys-bio.org/CRISPRRepression/promoter/1.0.0"].participant.set( target_promoter );
 
     // Start the CRPb Characterization Module
-    ComponentDefinition& CRPbPromoter = *new ComponentDefinition(BASE_URI, "pCRPb", BIOPAX_DNA, SO_PROMOTER);
-    ComponentDefinition& EYFPGene = *new ComponentDefinition(BASE_URI, "EYFPGene", BIOPAX_DNA, SO_CDS);
-    ComponentDefinition& EYFP = *new ComponentDefinition(BASE_URI, "EYFP", BIOPAX_PROTEIN);
+    ComponentDefinition& CRPbPromoter = *new ComponentDefinition(BASE_URI, "pCRPb", v, BIOPAX_DNA);
+    ComponentDefinition& EYFPGene = *new ComponentDefinition(BASE_URI, "EYFPGene", v, BIOPAX_DNA);
+    ComponentDefinition& EYFP = *new ComponentDefinition(BASE_URI, "EYFP", v, BIOPAX_PROTEIN);
+    CRPbPromoter.types.set(SO_PROMOTER);
+    EYFPGene.types.set(SO_CDS);
     
     // Set reference to Sequences.  Sequences are automatically added to the Document
     // Careful though!  If the parent ComponentDefinition isn't already attached to a Document, the Sequence can't be added either
@@ -115,5 +125,7 @@ int main()
     CRPbPromoter.sequence.set(*new Sequence(BASE_URI, "CRPbPromoterSeq", "GCTCCGAATTTCTCGACAGATCTCATGTGATTACGCCAAGCTACGGGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTTCTGTCCTCCGAGCGGAGACTCTAGATACCTCATCAGGAACATGTTGGAATTCTAGGCGTGTACGGTGGGAGGCCTATATAAGCAGAGCTCGTTTAGTGAACCGTCAGATCGCCTCGAGTACCTCATCAGGAACATGTTGGATCCAATTCGACC"));
     
 	doc.write("CRISPR_example.xml");
-	return 0;
+    doc.read("CRISPR_example.xml");
+    doc.write("CRISPR_example2.xml");
+    return 0;
 }

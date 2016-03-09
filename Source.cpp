@@ -1,13 +1,5 @@
-#define BASE_URI "http://sys-bio.org"
+#define BASE_URI "sys-bio.org"
 #define RAPTOR_STATIC
-#define BIOPAX_DNA "http://www.biopax.org/release/biopax-level3.owl#DnaRegion"
-#define BIOPAX_RNA "http://www.biopax.org/release/biopax-level3.owl#RnaRegion"
-#define BIOPAX_PROTEIN "http://www.biopax.org/release/biopax-level3.owl#Protein"
-#define BIOPAX_SMALL_MOLECULE "http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"
-#define BIOPAX_COMPLEX "http://www.biopax.org/release/biopax-level3.owl#Complex"
-#define SO_PROMOTER "http://identifiers.org/so/SO:0000167"
-#define SBO_NON_COVALENT_BINDING ""
-#define SBO_PROMOTER ""
 
 #include "sbol.h"
 
@@ -20,86 +12,108 @@ using namespace sbol;
 int main()
 {
 	Document& doc = *new Document();
-	string version = "1.0.0";
 
 	// Here we use CamelCase for displayID's, to distinguish Definitions from instances
-	ModuleDefinition& CRISPR_Template = *new ModuleDefinition(BASE_URI, "CRISPR_Template", "", "", "", "", version);
-    ComponentDefinition& cd1 = *new ComponentDefinition(BASE_URI, "Cas9", BIOPAX_PROTEIN, "", "", "", version);
-    ComponentDefinition& cd2 = *new ComponentDefinition(BASE_URI, "GuideRNA", BIOPAX_RNA, "", "", "", version);
-	ComponentDefinition& cd3 = *new ComponentDefinition(BASE_URI, "Cas9-GuideRNAComplex", BIOPAX_COMPLEX, "", "", "", version);
-	ComponentDefinition& cd4 = *new ComponentDefinition(BASE_URI, "CRPbTargetPromoter", BIOPAX_DNA, SO_PROMOTER, "", "", version);
-	doc.add<ComponentDefinition>(cd1);
-	doc.add<ComponentDefinition>(cd2);
-	doc.add<ComponentDefinition>(cd3);
-	doc.add<ComponentDefinition>(cd4);
-	doc.add<ModuleDefinition>(CRISPR_Template);
+	ModuleDefinition& CRISPRTemplate = *new ModuleDefinition(BASE_URI, "CRISPRTemplate", "", "", "", "", "1.0.0");
+    ComponentDefinition& Cas9 = *new ComponentDefinition(BASE_URI, "Cas9", BIOPAX_PROTEIN);
+    ComponentDefinition& GuideRNA = *new ComponentDefinition(BASE_URI, "GuideRNA", BIOPAX_RNA);
+	ComponentDefinition& Cas9GuideRNAComplex = *new ComponentDefinition(BASE_URI, "Cas9-GuideRNAComplex", BIOPAX_COMPLEX);
+	ComponentDefinition& TargetPromoter = *new ComponentDefinition(BASE_URI, "TargetPromoter", BIOPAX_DNA, SO_PROMOTER);
+    ComponentDefinition& TargetGene = *new ComponentDefinition(BASE_URI, "TargetGene", BIOPAX_DNA, SO_CDS);
+    ComponentDefinition& TargetProtein = *new ComponentDefinition(BASE_URI, "TargetProtein", BIOPAX_PROTEIN);
 
+    
+    doc.add<ModuleDefinition>(CRISPRTemplate);
+    doc.add<ComponentDefinition>(Cas9);
+	doc.add<ComponentDefinition>(GuideRNA);
+	doc.add<ComponentDefinition>(Cas9GuideRNAComplex);
+	doc.add<ComponentDefinition>(TargetPromoter);
+    doc.add<ComponentDefinition>(TargetGene);
+    doc.add<ComponentDefinition>(TargetProtein);
+
+    Interaction& Cas9ComplexFormation = *new Interaction(BASE_URI, "complex_formation", SBO_NONCOVALENT_BINDING);
+    Interaction& CRISPRRepression = *new Interaction(BASE_URI, "gene_inhibition", SBO_INHIBITION);
+    Interaction& TargetProduction = *new Interaction(BASE_URI, "target_production", SBO_GENETIC_PRODUCTION);
+
+    CRISPRTemplate.interactions.add(Cas9ComplexFormation);
+    
 	// Here we use lowercase and underscores to distinguish instances of Component Definitions
-	FunctionalComponent& fc1 = *new FunctionalComponent(BASE_URI, "cas9");
-	fc1.definition.set(BASE_URI "/Cas9/1.0.0");
-	FunctionalComponent& fc2 = *new FunctionalComponent(BASE_URI, "guide_rna");
-	fc2.definition.set(BASE_URI "/GuideRNA/1.0.0");
-	FunctionalComponent& fc3 = *new FunctionalComponent(BASE_URI, "cas9-guide_rna_complex");
-	fc3.definition.set(BASE_URI "/Cas9-GuideRNAComplex/1.0.0");
-	FunctionalComponent& fc4 = *new FunctionalComponent(BASE_URI, "crpb_target_promoter");
-	fc4.definition.set(BASE_URI "/TargetPromoter/1.0.0");
+	FunctionalComponent& cas9 = *new FunctionalComponent(BASE_URI, "cas9");
+    cas9.definition.set( Cas9.identity.get() );  // The set method is the simplest way to set a reference
 
-    SequenceAnnotation& SA = *new SequenceAnnotation(BASE_URI, "ann");
-    cd1.sequenceAnnotations.add(SA);
-    cout << cd1.identity.get() << endl;
-	Interaction& Cas9ComplexFormation = *new Interaction(BASE_URI, "cas9_complex_formation");
-	Cas9ComplexFormation.types.add(SBO_NON_COVALENT_BINDING);
-	CRISPR_Template.interactions.add(Cas9ComplexFormation);
+    // setReference provides more specialized methods of setting references
+    FunctionalComponent& gRNA = *new FunctionalComponent(BASE_URI, "guide_rna");
+	gRNA.definition.setReference( "sys-bio.org/GuideRNA/1.0.0" );  // setReference can take a raw formatted URI; this is exactly the same as the set method
 	
-	Participation& p1 = *new Participation(BASE_URI, "A");
-	Participation& p2 = *new Participation(BASE_URI, "B");
-	Participation& p3 = *new Participation(BASE_URI, "AB");
+    FunctionalComponent& cas9_gRNA_complex = *new FunctionalComponent(BASE_URI, "cas9-guide_rna_complex");
+	cas9_gRNA_complex.definition.setReference(BASE_URI, "Cas9-GuideRNAComplex", "1.0.0");  // setReference will also construct compliant URIs
+	
+    FunctionalComponent& target_promoter = *new FunctionalComponent(BASE_URI, "target_promoter");
+	target_promoter.definition.setReference(BASE_URI, "TargetPromoter");  // By default appends version 1.0.0 to compliant URI
 
-	p1.roles.add(SBO_REACTANT);
-	p2.roles.add(SBO_REACTANT);
-	p3.roles.add(SBO_PRODUCT);
+    FunctionalComponent& target_gene = *new FunctionalComponent(BASE_URI, "target_gene");
+    target_gene.definition.setReference(BASE_URI, "TargetGene");
+    
+    FunctionalComponent& target_protein = *new FunctionalComponent(BASE_URI, "target_protein");
+    target_protein.definition.setReference(BASE_URI, "TargetProtein");
+    
+    // Here we represent ComplexFormation as the reaction A + B = AB
+	Participation& A = *new Participation(BASE_URI, "A", SBO_REACTANT, "sys-bio.org/cas9/1.0.0");
+	Participation& B = *new Participation(BASE_URI, "B", SBO_REACTANT, "sys-bio.org/guide_rna/1.0.0");
+	Participation& AB = *new Participation(BASE_URI, "AB", SBO_PRODUCT, "sys-bio.org/cas9-guide_rna_complex/1.0.0");
+    Cas9ComplexFormation.participations.add(A);
+	Cas9ComplexFormation.participations.add(B);
+	Cas9ComplexFormation.participations.add(AB);
 
-	p1.participant.add(BASE_URI "/cas9");
-	p2.participant.add(BASE_URI "/guide_rna");
-	p3.participant.add(BASE_URI "/cas9-guide_rna_complex");
-
-    Cas9ComplexFormation.participations.add(p1);
-	Cas9ComplexFormation.participations.add(p2);
-	Cas9ComplexFormation.participations.add(p3);
-
-    cout << p1.roles.get() << endl;
-    cout << p2.roles.get() << endl;
-    cout << p3.roles.get() << endl;
-
+    // Iterate through objects (black diamond properties in UML)
     for( auto i_p = Cas9ComplexFormation.participations.begin(); i_p != Cas9ComplexFormation.participations.end(); i_p++)
     {
         Participation& p = (*i_p);
         cout << p.identity.get() << endl;
         cout << p.roles.get() << endl;
-
-//        std::cout << (**i_p).identity.get() << std::endl;
-//        std::cout << (**i_p).roles.get() << std::endl;
-
     }
     
+    // Iterate through references (white diamond properties in UML)
+    AB.roles.add(SBO "0000253");  // Appends the synonymous SBO term "non-covalent complex" to the list of roles for this Participation
+    for (auto i_role = AB.roles.begin(); i_role != AB.roles.end(); i_role++)
+    {
+        string role = *i_role;
+        cout << role << endl;
+    }
+
+	TargetProduction.participations.create(BASE_URI, "TargetProduction/promoter");  // The create method is general and not specialized for every class like libSBOLj's.
+    TargetProduction.participations.create(BASE_URI, "TargetProduction/gene");
+    TargetProduction.participations.create(BASE_URI, "TargetProduction/gene_product");
     
-    Interaction& EYFP_production = *new Interaction(BASE_URI, "target_production");
-	EYFP_production.types.add(SBO_GENETIC_PRODUCTION);
-	CRISPR_Template.interactions.add(EYFP_production);
+    // Child objects (corresponding to black diamonds in UML) can be accessed by uri
+    TargetProduction.participations[ "sys-bio.org/TargetProduction/promoter/1.0.0" ].roles.set(SBO_PROMOTER);
+    TargetProduction.participations[ "sys-bio.org/TargetProduction/gene/1.0.0" ].roles.set(SBO_PROMOTER);
+    TargetProduction.participations[ "sys-bio.org/TargetProduction/gene_product/1.0.0" ].roles.set(SBO_PRODUCT);
 
-	EYFP_production.participations.create(BASE_URI "promoter");
-	EYFP_production.participations.get(BASE_URI "promoter").roles.add(SBO_PROMOTER);
-	EYFP_production.participations.create(BASE_URI "gene_product");
-	EYFP_production.participations.get(BASE_URI "gene_product").roles.add(SBO_PRODUCT);
+    // Child objects can be dereferenced by numerical index, too.
+    TargetProduction.participations[ 0 ].participant.setReference(BASE_URI, "target_promoter");
+    TargetProduction.participations[ 1 ].participant.setReference(BASE_URI, "target_gene");
+    TargetProduction.participations[ 2 ].participant.setReference(BASE_URI, "target_protein");
+	
+    CRISPRRepression.participations.create(BASE_URI, "CRISPRRepression/inhibitor" );
+    CRISPRRepression.participations.create(BASE_URI, "CRISPRRepression/promoter" );
 
-	EYFP_production.participations.get(BASE_URI "promoter").participant.add(BASE_URI "crpb_target_promoter");
-    EYFP_production.participations.create(BASE_URI "gene");
+    CRISPRRepression.participations["sys-bio.org/CRISPRRepression/inhibitor/1.0.0"].roles.set( SBO_INHIBITOR );
+    CRISPRRepression.participations["sys-bio.org/CRISPRRepression/inhibitor/1.0.0"].participant.set( cas9_gRNA_complex ); // This syntax allows the user to set a reference using an object. This achieves the same end results as setReference
 
-    EYFP_production.participations.get(BASE_URI "gene").participant.add(BASE_URI "/target_gene/1.0.0");
+    CRISPRRepression.participations["sys-bio.org/CRISPRRepression/promoter/1.0.0"].roles.set( SBO_PROMOTER );
+    CRISPRRepression.participations["sys-bio.org/CRISPRRepression/promoter/1.0.0"].participant.set( target_promoter );
+
+    // Start the CRPb Characterization Module
+    ComponentDefinition& CRPbPromoter = *new ComponentDefinition(BASE_URI, "pCRPb", BIOPAX_DNA, SO_PROMOTER);
+    ComponentDefinition& EYFPGene = *new ComponentDefinition(BASE_URI, "EYFPGene", BIOPAX_DNA, SO_CDS);
+    ComponentDefinition& EYFP = *new ComponentDefinition(BASE_URI, "EYFP", BIOPAX_PROTEIN);
     
-    //std::vector<Participation*> v = EYFP_production.participations.copy();
-
-
+    // Set reference to Sequences.  Sequences are automatically added to the Document
+    // Careful though!  If the parent ComponentDefinition isn't already attached to a Document, the Sequence can't be added either
+    doc.add<ComponentDefinition>(CRPbPromoter);
+    CRPbPromoter.sequence.set(*new Sequence(BASE_URI, "CRPbPromoterSeq", "GCTCCGAATTTCTCGACAGATCTCATGTGATTACGCCAAGCTACGGGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTTCTGTCCTCCGAGCGGAGACTCTAGATACCTCATCAGGAACATGTTGGAATTCTAGGCGTGTACGGTGGGAGGCCTATATAAGCAGAGCTCGTTTAGTGAACCGTCAGATCGCCTCGAGTACCTCATCAGGAACATGTTGGATCCAATTCGACC"));
+    
 	doc.write("CRISPR_example.xml");
 	return 0;
 }

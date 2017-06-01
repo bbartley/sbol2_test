@@ -38,9 +38,11 @@ ELSE ()
 
     FIND_LIBRARY (sbol sbol)
     FIND_LIBRARY (raptor2 raptor2)
-    FIND_LIBRARY (xml2 xml2)
-    FIND_LIBRARY (zlib z)
-    FIND_LIBRARY (iconv iconv)
+    FIND_LIBRARY (curl curl)
+    FIND_LIBRARY (jsoncpp jsoncpp)
+#   FIND_LIBRARY (xml2 xml2)
+#   FIND_LIBRARY (zlib z)
+#   FIND_LIBRARY (iconv iconv)
 ENDIF ()
 
 # gather headers
@@ -72,6 +74,8 @@ ELSE ()
     TARGET_LINK_LIBRARIES( sbol_test
         ${sbol}
         ${raptor2}
+	${curl}
+	${jsoncpp}
         ${xml2}
         ${zlib}
         ${iconv}

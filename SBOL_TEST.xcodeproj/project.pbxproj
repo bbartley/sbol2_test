@@ -1,0 +1,695 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		40FD5CCB14F344A4BB3CE34F /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A20472D9911847FFB68B613A /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				FEE5DA449813427DBF63B376 /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		6ADDC05F723347CD80BBF4DE /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FFEDA69210594A61B14045F8 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				E985E6AFF08946AA8B824C09 /* CMake Rules */,
+			);
+			dependencies = (
+				3935EED8C04446B5B7A1CADF /* PBXTargetDependency */,
+				5B0C560F06954CA9AC241F6A /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		279917C8F41B4389AA286D39 /* /Users/bryan/Dev/sbol2_test/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 56B8659F6C1E46EF859278A6 /* /Users/bryan/Dev/sbol2_test/CMakeLists.txt */; };
+		8C01EB6CC521467FABEDA4E7 /* /Users/bryan/Dev/sbol2_test/Source.cpp */ = {isa = PBXBuildFile; fileRef = 29967814DA6943E3BF246D73 /* /Users/bryan/Dev/sbol2_test/Source.cpp */; };
+		95DF650E321D4109BAE97218 /* /Users/bryan/Dev/sbol2_test/igem_component.h */ = {isa = PBXBuildFile; fileRef = 6FB586EFAFBC4C1F8640DBB1 /* /Users/bryan/Dev/sbol2_test/igem_component.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		2960CF7A821C4EFC9A042610 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		7A185DDE60AB40858995D5DB /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		8D4380415ACF4C398E19CE92 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		C9252F9368E14A1E86DBD745 = {
+			isa = PBXBuildStyle;
+		};
+		E833968BEB0E4A6A8E63FFB4 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		4A459F3F28454AC5AA9F059C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56DEE476554A4153BF09698F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4027D32722A8459799FDB080;
+			remoteInfo = sbol_test;
+		};
+		B357B3458B4346828EA72A99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56DEE476554A4153BF09698F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40FD5CCB14F344A4BB3CE34F;
+			remoteInfo = ZERO_CHECK;
+		};
+		F414E0159402412BBDB5C6F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56DEE476554A4153BF09698F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40FD5CCB14F344A4BB3CE34F;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0EF9D05193FD47A0A3655E9D /* sbol_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = sbol_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		29967814DA6943E3BF246D73 /* /Users/bryan/Dev/sbol2_test/Source.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Source.cpp; path = Source.cpp; sourceTree = SOURCE_ROOT; };
+		56B8659F6C1E46EF859278A6 /* /Users/bryan/Dev/sbol2_test/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		6FB586EFAFBC4C1F8640DBB1 /* /Users/bryan/Dev/sbol2_test/igem_component.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = igem_component.h; path = igem_component.h; sourceTree = SOURCE_ROOT; };
+		CD0E76A714B94EC1B9FC0836 /* /Users/bryan/Dev/sbol2_test/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		D908B43EBCCE4363900BB983 /* /Users/bryan/Dev/sbol2_test/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1E586EE13E004A9CA192C2C2 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				D5EE65CBF2D34080B7395BC6 /* CMake Rules */,
+				CD0E76A714B94EC1B9FC0836 /* /Users/bryan/Dev/sbol2_test/CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		4740E50C00F14347AE1815B4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		51FC5966C04745288FB7457D /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				29967814DA6943E3BF246D73 /* /Users/bryan/Dev/sbol2_test/Source.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		5891AFF6117044F39E71F5CC /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				6FB586EFAFBC4C1F8640DBB1 /* /Users/bryan/Dev/sbol2_test/igem_component.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		72F97EFFD38E4AD6B6E94FD8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0EF9D05193FD47A0A3655E9D /* sbol_test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		875E58CB5CE04AABB1DEE2A7 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		8D1C336DAA6E4727908D5FD0 /* sbol_test */ = {
+			isa = PBXGroup;
+			children = (
+				5891AFF6117044F39E71F5CC /* Header Files */,
+				51FC5966C04745288FB7457D /* Source Files */,
+				56B8659F6C1E46EF859278A6 /* /Users/bryan/Dev/sbol2_test/CMakeLists.txt */,
+			);
+			name = sbol_test;
+			sourceTree = "<group>";
+		};
+		9EBAA03BB1B74CD89904B0B5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8D1C336DAA6E4727908D5FD0 /* sbol_test */,
+				BA4A68A939744AD2922CB312 /* ALL_BUILD */,
+				1E586EE13E004A9CA192C2C2 /* ZERO_CHECK */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		BA4A68A939744AD2922CB312 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				875E58CB5CE04AABB1DEE2A7 /* CMake Rules */,
+				D908B43EBCCE4363900BB983 /* /Users/bryan/Dev/sbol2_test/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		D5EE65CBF2D34080B7395BC6 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		FB1BC2E53FCB447D8390BEAF = {
+			isa = PBXGroup;
+			children = (
+				9EBAA03BB1B74CD89904B0B5 /* Sources */,
+				4740E50C00F14347AE1815B4 /* Resources */,
+				72F97EFFD38E4AD6B6E94FD8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4027D32722A8459799FDB080 /* sbol_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9287BEE06EB64B90AB7CC277 /* Build configuration list for PBXNativeTarget "sbol_test" */;
+			buildPhases = (
+				7730242E41DC4210B1576730 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E8754ADD6394E4286C157D4 /* PBXTargetDependency */,
+			);
+			name = sbol_test;
+			productName = sbol_test;
+			productReference = 0EF9D05193FD47A0A3655E9D /* sbol_test */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		56DEE476554A4153BF09698F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0720;
+			};
+			buildConfigurationList = 0878DB696AD448898A9C46A0 /* Build configuration list for PBXProject "SBOL_TEST" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				8D4380415ACF4C398E19CE92 /* Debug */,
+				2960CF7A821C4EFC9A042610 /* Release */,
+				E833968BEB0E4A6A8E63FFB4 /* MinSizeRel */,
+				7A185DDE60AB40858995D5DB /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = FB1BC2E53FCB447D8390BEAF;
+			projectDirPath = .;
+			projectRoot = "";
+			targets = (
+				6ADDC05F723347CD80BBF4DE /* ALL_BUILD */,
+				40FD5CCB14F344A4BB3CE34F /* ZERO_CHECK */,
+				4027D32722A8459799FDB080 /* sbol_test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59B2CCB8FFD94133B20D66A5 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		AC360C0B18AF403B94CFF243 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		E985E6AFF08946AA8B824C09 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/bryan/Dev/sbol2_test -f /Users/bryan/Dev/sbol2_test/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		FEE5DA449813427DBF63B376 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/bryan/Dev/sbol2_test -f /Users/bryan/Dev/sbol2_test/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7730242E41DC4210B1576730 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C01EB6CC521467FABEDA4E7 /* /Users/bryan/Dev/sbol2_test/Source.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3935EED8C04446B5B7A1CADF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4027D32722A8459799FDB080 /* sbol_test */;
+			targetProxy = 4A459F3F28454AC5AA9F059C /* PBXContainerItemProxy */;
+		};
+		5B0C560F06954CA9AC241F6A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40FD5CCB14F344A4BB3CE34F /* ZERO_CHECK */;
+			targetProxy = F414E0159402412BBDB5C6F4 /* PBXContainerItemProxy */;
+		};
+		6E8754ADD6394E4286C157D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40FD5CCB14F344A4BB3CE34F /* ZERO_CHECK */;
+			targetProxy = B357B3458B4346828EA72A99 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00F292F78DD04C4293C3AFC7 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/sbol);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/bryan/Dev/sbol2_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		0E03E65778E54734B27DC491 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/sbol);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/bryan/Dev/sbol2_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		27A411AE365247339C5F0A76 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/sbol);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = " -std=c++11     -DNDEBUG -I/usr/local/include/sbol   ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libsbol.dylib /usr/local/lib/libraptor2.dylib /usr/lib/libcurl.dylib /usr/local/lib/libjsoncpp.dylib";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = sbol_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/bryan/Dev/sbol2_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		2F25D418878047D18D68550A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/sbol);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/bryan/Dev/sbol2_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		8132E5A8E8A2456E86935284 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/sbol);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/bryan/Dev/sbol2_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		8343287FDCCE4DF4B7C1AACE /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/bryan/Dev/sbol2_test/build;
+			};
+			name = RelWithDebInfo;
+		};
+		8790AF55523A40899C06847A /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/sbol);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/bryan/Dev/sbol2_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		99F5ECE2F4534EFFB590879E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/bryan/Dev/sbol2_test/build;
+			};
+			name = Debug;
+		};
+		AA1773C2D3184732B2385728 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/bryan/Dev/sbol2_test/build;
+			};
+			name = Release;
+		};
+		AAB7D82213DA4F9288797B84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/sbol);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/bryan/Dev/sbol2_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		AAC9F92DE59845DD83E90BB9 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/sbol);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/bryan/Dev/sbol2_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		AB77CDE7CEAB49C2A8A55C65 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/bryan/Dev/sbol2_test/build;
+			};
+			name = MinSizeRel;
+		};
+		BCB80AC48CE44540A53F06B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/sbol);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/bryan/Dev/sbol2_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		DB72380114444D8AB27D9BD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/sbol);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = " -std=c++11    -I/usr/local/include/sbol   ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libsbol.dylib /usr/local/lib/libraptor2.dylib /usr/lib/libcurl.dylib /usr/local/lib/libjsoncpp.dylib";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = sbol_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/bryan/Dev/sbol2_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		E7C7A9BA509E4C23B3927C8D /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/sbol);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = " -std=c++11        -DNDEBUG -I/usr/local/include/sbol   ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libsbol.dylib /usr/local/lib/libraptor2.dylib /usr/lib/libcurl.dylib /usr/local/lib/libjsoncpp.dylib";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = sbol_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/bryan/Dev/sbol2_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		EEC3A3BBA8A446FA8AFA321F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/sbol);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = " -std=c++11     -DNDEBUG -I/usr/local/include/sbol   ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libsbol.dylib /usr/local/lib/libraptor2.dylib /usr/lib/libcurl.dylib /usr/local/lib/libjsoncpp.dylib";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = sbol_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/bryan/Dev/sbol2_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0878DB696AD448898A9C46A0 /* Build configuration list for PBXProject "SBOL_TEST" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99F5ECE2F4534EFFB590879E /* Debug */,
+				AA1773C2D3184732B2385728 /* Release */,
+				AB77CDE7CEAB49C2A8A55C65 /* MinSizeRel */,
+				8343287FDCCE4DF4B7C1AACE /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9287BEE06EB64B90AB7CC277 /* Build configuration list for PBXNativeTarget "sbol_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB72380114444D8AB27D9BD0 /* Debug */,
+				EEC3A3BBA8A446FA8AFA321F /* Release */,
+				27A411AE365247339C5F0A76 /* MinSizeRel */,
+				E7C7A9BA509E4C23B3927C8D /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A20472D9911847FFB68B613A /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAB7D82213DA4F9288797B84 /* Debug */,
+				2F25D418878047D18D68550A /* Release */,
+				8790AF55523A40899C06847A /* MinSizeRel */,
+				0E03E65778E54734B27DC491 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FFEDA69210594A61B14045F8 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCB80AC48CE44540A53F06B7 /* Debug */,
+				8132E5A8E8A2456E86935284 /* Release */,
+				00F292F78DD04C4293C3AFC7 /* MinSizeRel */,
+				AAC9F92DE59845DD83E90BB9 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 56DEE476554A4153BF09698F /* Project object */;
+}

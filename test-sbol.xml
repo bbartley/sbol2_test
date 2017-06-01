@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:prov="http://www.w3.org/ns/prov#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:sbol="http://sbols.org/v2#">
+  <sbol:ModuleDefinition rdf:about="http://sys-bio.org/ModuleDefinition/CRISPRTemplate/1.0.0">
+    <sbol:displayId>CRISPRTemplate</sbol:displayId>
+    <sbol:functionalComponent>
+      <sbol:ComponentDefinition rdf:about="http://sys-bio.org/ComponentDefinition/Cas9/1.0.0">
+        <sbol:displayId>Cas9</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ComponentDefinition/Cas9"/>
+        <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+        <sbol:version>1.0.0</sbol:version>
+        <rdf:type rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+      </sbol:ComponentDefinition>
+    </sbol:functionalComponent>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/CRISPRTemplate"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ModuleDefinition>
+</rdf:RDF>

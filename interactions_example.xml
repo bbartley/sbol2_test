@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/#"
+   xmlns:prov="http://www.w3.org/ns/prov#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:sbol="http://sbols.org/v2#">
+  <sbol:ComponentDefinition rdf:about="http://sys-bio.org/ComponentDefinition/Cas9/1.0.0">
+    <sbol:displayId>Cas9</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ComponentDefinition/Cas9"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://sys-bio.org/ComponentDefinition/Cas9GuideRNAComplex/1.0.0">
+    <sbol:displayId>Cas9GuideRNAComplex</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ComponentDefinition/Cas9GuideRNAComplex"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://sys-bio.org/ComponentDefinition/GuideRNA/1.0.0">
+    <sbol:displayId>GuideRNA</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ComponentDefinition/GuideRNA"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://sys-bio.org/ComponentDefinition/HBax/1.0.0">
+    <sbol:displayId>HBax</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ComponentDefinition/HBax"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://sys-bio.org/ComponentDefinition/LacI/1.0.0">
+    <sbol:displayId>LacI</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ComponentDefinition/LacI"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://sys-bio.org/ComponentDefinition/TargetGene/1.0.0">
+    <sbol:displayId>TargetGene</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ComponentDefinition/TargetGene"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://sys-bio.org/ComponentDefinition/TargetPromoter/1.0.0">
+    <sbol:displayId>TargetPromoter</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ComponentDefinition/TargetPromoter"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://sys-bio.org/ComponentDefinition/TargetProtein/1.0.0">
+    <sbol:displayId>TargetProtein</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ComponentDefinition/TargetProtein"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://sys-bio.org/ComponentDefinition/TissueMarker/1.0.0">
+    <sbol:displayId>TissueMarker</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ComponentDefinition/TissueMarker"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://sys-bio.org/ComponentDefinition/TumorMarker/1.0.0">
+    <sbol:displayId>TumorMarker</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ComponentDefinition/TumorMarker"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ComponentDefinition>
+  <sbol:ModuleDefinition rdf:about="http://sys-bio.org/ModuleDefinition/CRISPRTemplate/1.0.0">
+    <sbol:displayId>CRISPRTemplate</sbol:displayId>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/CRISPRTemplate/TargetProtein/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/TargetProtein/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#out"/>
+        <sbol:displayId>TargetProtein</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/CRISPRTemplate/TargetProtein"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/CRISPRTemplate"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ModuleDefinition>
+  <sbol:ModuleDefinition rdf:about="http://sys-bio.org/ModuleDefinition/CRISPRVariant/1.0.0">
+    <sbol:displayId>CRISPRVariant</sbol:displayId>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/CRISPRVariant/LacI/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/LacI/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#out"/>
+        <sbol:displayId>LacI</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/CRISPRVariant/LacI"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:module>
+      <sbol:Module rdf:about="http://sys-bio.org/ModuleDefinition/CRISPRVariant/CRISPRTemplate/1.0.0">
+        <sbol:definition rdf:resource="http://sys-bio.org/ModuleDefinition/CRISPRTemplate/1.0.0"/>
+        <sbol:displayId>CRISPRTemplate</sbol:displayId>
+        <sbol:mapsTo>
+          <sbol:MapsTo rdf:about="http://sys-bio.org/ModuleDefinition/CRISPRVariant/CRISPRTemplate/http://sys-bio.org/ModuleDefinition/CRISPRVariant/LacI/1.0.0/1.0.0">
+            <sbol:displayId>http://sys-bio.org/ModuleDefinition/CRISPRVariant/LacI/1.0.0</sbol:displayId>
+            <sbol:local rdf:resource="http://sys-bio.org/ModuleDefinition/CRISPRVariant/LacI/1.0.0"/>
+            <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/CRISPRVariant/CRISPRTemplate/http://sys-bio.org/ModuleDefinition/CRISPRVariant/LacI/1.0.0"/>
+            <sbol:refinement rdf:resource="http://sbols.org/v2#useLocal"/>
+            <sbol:remote rdf:resource="http://sys-bio.org/ModuleDefinition/CRISPRTemplate/TargetProtein/1.0.0"/>
+            <sbol:version>1.0.0</sbol:version>
+          </sbol:MapsTo>
+        </sbol:mapsTo>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/CRISPRVariant/CRISPRTemplate"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:Module>
+    </sbol:module>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/CRISPRVariant"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ModuleDefinition>
+  <sbol:ModuleDefinition rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/1.0.0">
+    <sbol:displayId>NandGate</sbol:displayId>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/Cas9/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/Cas9/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#none"/>
+        <sbol:displayId>Cas9</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/Cas9"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/Cas9GuideRNAComplex/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/Cas9GuideRNAComplex/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#none"/>
+        <sbol:displayId>Cas9GuideRNAComplex</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/Cas9GuideRNAComplex"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/GuideRNA/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/GuideRNA/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#none"/>
+        <sbol:displayId>GuideRNA</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/GuideRNA"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/HBax/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/HBax/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#out"/>
+        <sbol:displayId>HBax</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/HBax"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/LacI/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/LacI/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#out"/>
+        <sbol:displayId>LacI</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/LacI"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/TargetGene/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/TargetGene/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#none"/>
+        <sbol:displayId>TargetGene</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/TargetGene"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/TargetPromoter/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/TargetPromoter/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#none"/>
+        <sbol:displayId>TargetPromoter</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/TargetPromoter"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/TargetProtein/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/TargetProtein/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#none"/>
+        <sbol:displayId>TargetProtein</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/TargetProtein"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/TissueMarker/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/TissueMarker/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#in"/>
+        <sbol:displayId>TissueMarker</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/TissueMarker"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/TumorMarker/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/TumorMarker/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#in"/>
+        <sbol:displayId>TumorMarker</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/TumorMarker"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:interaction>
+      <sbol:Interaction rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/complex_formation/1.0.0">
+        <sbol:displayId>complex_formation</sbol:displayId>
+        <sbol:participation>
+          <sbol:Participation rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/complex_formation/A/1.0.0">
+            <sbol:displayId>A</sbol:displayId>
+            <sbol:participant rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/Cas9/1.0.0"/>
+            <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/complex_formation/A"/>
+            <sbol:role rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000010"/>
+            <sbol:version>1.0.0</sbol:version>
+          </sbol:Participation>
+        </sbol:participation>
+        <sbol:participation>
+          <sbol:Participation rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/complex_formation/AB/1.0.0">
+            <sbol:displayId>AB</sbol:displayId>
+            <sbol:participant rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/Cas9GuideRNAComplex/1.0.0"/>
+            <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/complex_formation/AB"/>
+            <sbol:role rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000011"/>
+            <sbol:version>1.0.0</sbol:version>
+          </sbol:Participation>
+        </sbol:participation>
+        <sbol:participation>
+          <sbol:Participation rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/complex_formation/B/1.0.0">
+            <sbol:displayId>B</sbol:displayId>
+            <sbol:participant rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/GuideRNA/1.0.0"/>
+            <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/complex_formation/B"/>
+            <sbol:role rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000010"/>
+            <sbol:version>1.0.0</sbol:version>
+          </sbol:Participation>
+        </sbol:participation>
+        <sbol:participation>
+          <sbol:Participation rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/complex_formation/repression_target/1.0.0">
+            <sbol:displayId>repression_target</sbol:displayId>
+            <sbol:participant rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/TargetPromoter/1.0.0"/>
+            <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/complex_formation/repression_target"/>
+            <sbol:role rdf:resource="0000494"/>
+            <sbol:version>1.0.0</sbol:version>
+          </sbol:Participation>
+        </sbol:participation>
+        <sbol:participation>
+          <sbol:Participation rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/complex_formation/repressor/1.0.0">
+            <sbol:displayId>repressor</sbol:displayId>
+            <sbol:participant rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/Cas9GuideRNAComplex/1.0.0"/>
+            <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/complex_formation/repressor"/>
+            <sbol:role rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000020"/>
+            <sbol:version>1.0.0</sbol:version>
+          </sbol:Participation>
+        </sbol:participation>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/complex_formation"/>
+        <sbol:type rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000177"/>
+        <sbol:type rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000343"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:Interaction>
+    </sbol:interaction>
+    <sbol:interaction>
+      <sbol:Interaction rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/gene_production/1.0.0">
+        <sbol:displayId>gene_production</sbol:displayId>
+        <sbol:participation>
+          <sbol:Participation rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/gene_production/gene/1.0.0">
+            <sbol:displayId>gene</sbol:displayId>
+            <sbol:participant rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/TargetGene/1.0.0"/>
+            <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/gene_production/gene"/>
+            <sbol:role rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000243"/>
+            <sbol:version>1.0.0</sbol:version>
+          </sbol:Participation>
+        </sbol:participation>
+        <sbol:participation>
+          <sbol:Participation rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/gene_production/gene_product/1.0.0">
+            <sbol:displayId>gene_product</sbol:displayId>
+            <sbol:participant rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/TargetProtein/1.0.0"/>
+            <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/gene_production/gene_product"/>
+            <sbol:role rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000011"/>
+            <sbol:version>1.0.0</sbol:version>
+          </sbol:Participation>
+        </sbol:participation>
+        <sbol:participation>
+          <sbol:Participation rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/gene_production/promoter/1.0.0">
+            <sbol:displayId>promoter</sbol:displayId>
+            <sbol:participant rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/TargetPromoter/1.0.0"/>
+            <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/gene_production/promoter"/>
+            <sbol:role rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000598"/>
+            <sbol:version>1.0.0</sbol:version>
+          </sbol:Participation>
+        </sbol:participation>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/gene_production"/>
+        <sbol:type rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000343"/>
+        <sbol:type rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000589"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:Interaction>
+    </sbol:interaction>
+    <sbol:interaction>
+      <sbol:Interaction rdf:about="http://sys-bio.org/ModuleDefinition/NandGate/gene_repression/1.0.0">
+        <sbol:displayId>gene_repression</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/gene_repression"/>
+        <sbol:type rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000169"/>
+        <sbol:type rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000343"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:Interaction>
+    </sbol:interaction>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ModuleDefinition>
+  <sbol:ModuleDefinition rdf:about="http://sys-bio.org/ModuleDefinition/NotGate/1.0.0">
+    <sbol:displayId>NotGate</sbol:displayId>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/NotGate/LacI/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/LacI/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#in"/>
+        <sbol:displayId>LacI</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NotGate/LacI"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/NotGate"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ModuleDefinition>
+  <sbol:ModuleDefinition rdf:about="http://sys-bio.org/ModuleDefinition/TumorKiller/1.0.0">
+    <sbol:displayId>TumorKiller</sbol:displayId>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://sys-bio.org/ModuleDefinition/TumorKiller/LacI/1.0.0">
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://sys-bio.org/ComponentDefinition/LacI/1.0.0"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#none"/>
+        <sbol:displayId>LacI</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/TumorKiller/LacI"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:module>
+      <sbol:Module rdf:about="http://sys-bio.org/ModuleDefinition/TumorKiller/NandGate/1.0.0">
+        <sbol:definition rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/1.0.0"/>
+        <sbol:displayId>NandGate</sbol:displayId>
+        <sbol:mapsTo>
+          <sbol:MapsTo rdf:about="http://sys-bio.org/ModuleDefinition/TumorKiller/NandGate/LacI/1.0.0">
+            <sbol:displayId>LacI</sbol:displayId>
+            <sbol:local rdf:resource="http://sys-bio.org/ModuleDefinition/TumorKiller/LacI/1.0.0"/>
+            <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/TumorKiller/NandGate/LacI"/>
+            <sbol:refinement rdf:resource="http://sbols.org/v2#verifyIdentical"/>
+            <sbol:remote rdf:resource="http://sys-bio.org/ModuleDefinition/NandGate/LacI/1.0.0"/>
+            <sbol:version>1.0.0</sbol:version>
+          </sbol:MapsTo>
+        </sbol:mapsTo>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/TumorKiller/NandGate"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:Module>
+    </sbol:module>
+    <sbol:module>
+      <sbol:Module rdf:about="http://sys-bio.org/ModuleDefinition/TumorKiller/NotGate/1.0.0">
+        <sbol:definition rdf:resource="http://sys-bio.org/ModuleDefinition/NotGate/1.0.0"/>
+        <sbol:displayId>NotGate</sbol:displayId>
+        <sbol:mapsTo>
+          <sbol:MapsTo rdf:about="http://sys-bio.org/ModuleDefinition/TumorKiller/NotGate/LacI/1.0.0">
+            <sbol:displayId>LacI</sbol:displayId>
+            <sbol:local rdf:resource="http://sys-bio.org/ModuleDefinition/TumorKiller/LacI/1.0.0"/>
+            <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/TumorKiller/NotGate/LacI"/>
+            <sbol:refinement rdf:resource="http://sbols.org/v2#verifyIdentical"/>
+            <sbol:remote rdf:resource="http://sys-bio.org/ModuleDefinition/NotGate/LacI/1.0.0"/>
+            <sbol:version>1.0.0</sbol:version>
+          </sbol:MapsTo>
+        </sbol:mapsTo>
+        <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/TumorKiller/NotGate"/>
+        <sbol:version>1.0.0</sbol:version>
+      </sbol:Module>
+    </sbol:module>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ModuleDefinition/TumorKiller"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ModuleDefinition>
+</rdf:RDF>

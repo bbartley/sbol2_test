@@ -1,0 +1,51 @@
+[ 50%] Building CXX object CMakeFiles/sbol_test.dir/Source.cpp.o
+/Users/bryan/Dev/sbol2_test/Source.cpp:26:45: error: calling a protected constructor of class 'sbol::ComponentDefinition'
+        ComponentDefinition& TargetPromoter = *new ComponentDefinition(BASE_URI, "TargetPromoter", v, BIOPAX_DNA, SO_PROMOTER);
+                                                   ^
+/usr/local/include/sbol/componentdefinition.h:46:9: note: declared protected here
+        ComponentDefinition(sbol_type type, std::string uri_prefix, std::string display_id, std::string version, std::string component_type) :
+        ^
+/Users/bryan/Dev/sbol2_test/Source.cpp:27:44: error: calling a protected constructor of class 'sbol::ComponentDefinition'
+    ComponentDefinition& TargetGene = *new ComponentDefinition(BASE_URI, "TargetGene", v, BIOPAX_DNA, SO_CDS);
+                                           ^
+/usr/local/include/sbol/componentdefinition.h:46:9: note: declared protected here
+        ComponentDefinition(sbol_type type, std::string uri_prefix, std::string display_id, std::string version, std::string component_type) :
+        ^
+/Users/bryan/Dev/sbol2_test/Source.cpp:36:46: error: calling a protected constructor of class 'sbol::ComponentDefinition'
+    ComponentDefinition& CRPbPromoter = *new ComponentDefinition(BASE_URI, "CRPbPromoter", v, BIOPAX_DNA, SO_PROMOTER);
+                                             ^
+/usr/local/include/sbol/componentdefinition.h:46:9: note: declared protected here
+        ComponentDefinition(sbol_type type, std::string uri_prefix, std::string display_id, std::string version, std::string component_type) :
+        ^
+/Users/bryan/Dev/sbol2_test/Source.cpp:37:42: error: calling a protected constructor of class 'sbol::ComponentDefinition'
+    ComponentDefinition& EYFPGene = *new ComponentDefinition(BASE_URI, "EYFPGene", v, BIOPAX_DNA, SO_CDS);
+                                         ^
+/usr/local/include/sbol/componentdefinition.h:46:9: note: declared protected here
+        ComponentDefinition(sbol_type type, std::string uri_prefix, std::string display_id, std::string version, std::string component_type) :
+        ^
+/Users/bryan/Dev/sbol2_test/Source.cpp:143:5: error: use of undeclared identifier 'CRPbPromoterSeq'; did you mean 'CRPbPromoter'?
+    CRPbPromoterSeq = *new Sequence(BASE_URI, "CRPbPromoterSeq", "GCTCCGAATTTCTCGACAGATCTCATGTGATTACGCCAAGCTACGGGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTTCTGTCCTCCGAGCGGAGACTCTAGATACCTCATCAGGAACATGTTGGAATTCTAGGCGTGTACGGTGGGAGGCCTATATAAGCAGAGCTCGTTTAGTGAACCGTCAGATCGCCTCGAGTACCTCATCAGGAACATGTTGGATCCAATTCGACC", SBOL_ENCODING_IUPAC);
+    ^~~~~~~~~~~~~~~
+    CRPbPromoter
+/Users/bryan/Dev/sbol2_test/Source.cpp:36:26: note: 'CRPbPromoter' declared here
+    ComponentDefinition& CRPbPromoter = *new ComponentDefinition(BASE_URI, "CRPbPromoter", v, BIOPAX_DNA, SO_PROMOTER);
+                         ^
+/Users/bryan/Dev/sbol2_test/Source.cpp:143:28: error: calling a protected constructor of class 'sbol::Sequence'
+    CRPbPromoterSeq = *new Sequence(BASE_URI, "CRPbPromoterSeq", "GCTCCGAATTTCTCGACAGATCTCATGTGATTACGCCAAGCTACGGGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTTCTGTCCTCCGAGCGGAGACTCTAGATACCTCATCAGGAACATGTTGGAATTCTAGGCGTGTACGGTGGGAGGCCTATATAAGCAGAGCTCGTTTAGTGAACCGTCAGATCGCCTCGAGTACCTCATCAGGAACATGTTGGATCCAATTCGACC", SBOL_ENCODING_IUPAC);
+                           ^
+/usr/local/include/sbol/sequence.h:24:9: note: declared protected here
+        Sequence(sbol_type type_uri, std::string uri, std::string elements, std::string encoding) :
+        ^
+/Users/bryan/Dev/sbol2_test/Source.cpp:143:21: error: no viable overloaded '='
+    CRPbPromoterSeq = *new Sequence(BASE_URI, "CRPbPromoterSeq", "GCTCCGAATTTCTCGACAGATCTCATGTGATTACGCCAAGCTACGGGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTTCTGTCCTCCGAGCGGAGACTCTAGATACCTCATCAGGAACATGTTGGAATTCTAGGCGTGTACGGTGGGAGGCCTATATAAGCAGAGCTCGTTTAGTGAACCGTCAGATCGCCTCGAGTACCTCATCAGGAACATGTTGGATCCAATTCGACC", SBOL_ENCODING_IUPAC);
+    ~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/include/sbol/componentdefinition.h:15:11: note: candidate function (the implicit copy assignment operator) not viable: no known conversion from 'sbol::Sequence' to 'const sbol::ComponentDefinition' for 1st argument
+    class ComponentDefinition : public TopLevel
+          ^
+/Users/bryan/Dev/sbol2_test/Source.cpp:144:32: error: use of undeclared identifier 'CRPbPromoterSeq'
+    CRPbPromoter.sequence.set( CRPbPromoterSeq );  // Set reference to Sequences.  Sequences are automatically added to the Document.  Careful though!  If the parent ComponentDefinition isn't already attached to a Document, the Sequence can't be added either
+                               ^
+8 errors generated.
+make[2]: *** [CMakeFiles/sbol_test.dir/Source.cpp.o] Error 1
+make[1]: *** [CMakeFiles/sbol_test.dir/all] Error 2
+make: *** [all] Error 2

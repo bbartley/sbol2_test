@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:igem="http://igem.org#"
+   xmlns:prov="http://www.w3.org/ns/prov#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:sbol="http://sbols.org/v2#">
+  <igem:iGEMCDef rdf:about="http://sys-bio.org/iGEMCDef/test/1.0.0">
+    <igem:partStatus>This thing is alright</igem:partStatus>
+    <sbol:displayId>test</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/iGEMCDef/test"/>
+    <sbol:type rdf:resource="http://identifiers.org/so/SO:0000001"/>
+    <sbol:version>1.0.0</sbol:version>
+    <rdf:type rdf:resource="http://igem.org#iGEMCDef"/>
+  </igem:iGEMCDef>
+</rdf:RDF>

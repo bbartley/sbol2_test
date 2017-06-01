@@ -1,82 +1,164 @@
 #define BASE_URI "http://sys-bio.org"
 #define RAPTOR_STATIC
-#define BIOPAX_DNA "http://www.biopax.org/release/biopax-level3.owl#DnaRegion"
-#define BIOPAX_RNA "http://www.biopax.org/release/biopax-level3.owl#RnaRegion"
-#define BIOPAX_PROTEIN "http://www.biopax.org/release/biopax-level3.owl#Protein"
-#define BIOPAX_SMALL_MOLECULE "http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"
-#define BIOPAX_COMPLEX "http://www.biopax.org/release/biopax-level3.owl#Complex"
-#define SO_PROMOTER "http://identifiers.org/so/SO:0000167"
-#define SBO_NON_COVALENT_BINDING ""
-#define SBO_PROMOTER ""
 
 #include "sbol.h"
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 using namespace sbol;
 
 int main()
 {
-	Document& doc = Document();
-	string version = "1.0.0";
-
+	Document& doc = *new Document();
+    setHomespace(BASE_URI);
+    toggleSBOLCompliance();
+    
 	// Here we use CamelCase for displayID's, to distinguish Definitions from instances
-	ModuleDefinition& CRISPR_Template = ModuleDefinition(BASE_URI, "CRISPR_Template", "", "", "", "", version);
-	ComponentDefinition& cd1 = ComponentDefinition(BASE_URI, "Cas9", BIOPAX_PROTEIN, "", "", "", version);
-	ComponentDefinition& cd2 = ComponentDefinition(BASE_URI, "GuideRNA", BIOPAX_RNA, "", "", "", version);
-	ComponentDefinition& cd3 = ComponentDefinition(BASE_URI, "Cas9-GuideRNAComplex", BIOPAX_COMPLEX, "", "", "", version);
-	ComponentDefinition& cd4 = ComponentDefinition(BASE_URI, "CRPbTargetPromoter", BIOPAX_DNA, SO_PROMOTER, "", "", version);
-	doc.add<ComponentDefinition>(cd1);
-	doc.add<ComponentDefinition>(cd2);
-	doc.add<ComponentDefinition>(cd3);
-	doc.add<ComponentDefinition>(cd4);
-	doc.add<ModuleDefinition>(CRISPR_Template);
+    ModuleDefinition& CRISPRTemplate = *new ModuleDefinition(BASE_URI, "CRISPRTemplate", v);
+    ModuleDefinition& CRPbCircuit = *new ModuleDefinition(BASE_URI, "CRPbCircuit", v);
 
-	// Here we use lowercase and underscores to distinguish instances of Component Definitions
-	FunctionalComponent& fc1 = FunctionalComponent(BASE_URI, "cas9");
-	fc1.definition.set(BASE_URI "/Cas9/1.0.0");
-	FunctionalComponent& fc2 = FunctionalComponent(BASE_URI, "guide_rna");
-	fc2.definition.set(BASE_URI "/GuideRNA/1.0.0");
-	FunctionalComponent& fc3 = FunctionalComponent(BASE_URI, "cas9-guide_rna_complex");
-	fc3.definition.set(BASE_URI "/Cas9-GuideRNAComplex/1.0.0");
-	FunctionalComponent& fc4 = FunctionalComponent(BASE_URI, "crpb_target_promoter");
-	fc4.definition.set(BASE_URI "/TargetPromoter/1.0.0");
+    // Components in the CRISPR Template
+    ComponentDefinition& Cas9 = *new ComponentDefinition(BASE_URI, "Cas9", v, BIOPAX_PROTEIN);
+    ComponentDefinition& GuideRNA = *new ComponentDefinition(BASE_URI, "GuideRNA", v, BIOPAX_RNA);
+	ComponentDefinition& Cas9GuideRNAComplex = *new ComponentDefinition(BASE_URI, "Cas9-GuideRNAComplex", v, BIOPAX_COMPLEX);
+	ComponentDefinition& TargetPromoter = *new ComponentDefinition(BASE_URI, "TargetPromoter", v, BIOPAX_DNA);
+    ComponentDefinition& TargetGene = *new ComponentDefinition(BASE_URI, "TargetGene", v, BIOPAX_DNA);
+    ComponentDefinition& TargetProtein = *new ComponentDefinition(BASE_URI, "TargetProtein", v, BIOPAX_PROTEIN);
 
-	Interaction& Cas9ComplexFormation = Interaction(BASE_URI, "cas9_complex_formation");
-	Cas9ComplexFormation.types.add(SBO_NON_COVALENT_BINDING);
-	CRISPR_Template.interactions.add(Cas9ComplexFormation);
+    
+    // Start the CRPb Characterization Module
+    // For simplicity, only components that interface with the CRISPRTemplate Module are defined here.  For now, the rest of the module is treated like a black box
+    // Components in the CRPb Characterization Module
+    ComponentDefinition& Cas9mBFP = *new ComponentDefinition(BASE_URI, "Cas9-mBFP", v, BIOPAX_PROTEIN);  // This is an output of the Module
+    ComponentDefinition& GuideRNAb = *new ComponentDefinition(BASE_URI, "GuideRNAb", v, BIOPAX_RNA);  // This is an output of the Module
+    ComponentDefinition& Cas9mBFPGuideRNAComplex = *new ComponentDefinition(BASE_URI, "Cas9mBFPGuideRNAComplex", v, BIOPAX_RNA);
+    ComponentDefinition& CRPbPromoter = *new ComponentDefinition(BASE_URI, "CRPbPromoter", v, BIOPAX_DNA);
+    ComponentDefinition& EYFPGene = *new ComponentDefinition(BASE_URI, "EYFPGene", v, BIOPAX_DNA);
+    ComponentDefinition& EYFP = *new ComponentDefinition(BASE_URI, "EYFP", v, BIOPAX_PROTEIN);  // This is the input of the Module
+    
+    doc.add<ModuleDefinition>(CRISPRTemplate);
+    doc.add<ComponentDefinition>(Cas9);
+    doc.add<ComponentDefinition>(GuideRNA);
+    doc.add<ComponentDefinition>(Cas9GuideRNAComplex);
+    doc.add<ComponentDefinition>(TargetPromoter);
+    doc.add<ComponentDefinition>(TargetGene);
+    doc.add<ComponentDefinition>(TargetProtein);
+ 
+    doc.add<ModuleDefinition>(CRPbCircuit);
+    doc.add<ComponentDefinition>(Cas9mBFP);
+    doc.add<ComponentDefinition>(GuideRNAb);
+    doc.add<ComponentDefinition>(Cas9mBFPGuideRNAComplex);
+    doc.add<ComponentDefinition>(CRPbPromoter);
+    doc.add<ComponentDefinition>(EYFPGene);
+    doc.add<ComponentDefinition>(EYFP);
+    
+    // Instantiate Modules
+    Module& crispr_template = *new Module(BASE_URI, "crispr_template", v, "sys-bio.org/ModuleDefinition/CRISPRTemplate/1.0.0");
+    Module& crpb_circuit = *new Module(BASE_URI, "crpb_circuit", v, "sys-bio.org/ModuleDefinition/CRPbPromoter/1.0.0");
+    CRPbCircuit.modules.add(crpb_circuit);
+
+    // Define the Components at the interface of the two Modules
+    FunctionalComponent& cas9 = *new FunctionalComponent(BASE_URI, "cas9", v, "sys-bio.org/ComponentDefinition/Cas9/1.0.0", SBOL_ACCESS_PUBLIC, SBOL_DIRECTION_IN);
+    FunctionalComponent& guide_rna = *new FunctionalComponent(BASE_URI, "guide_rna", v, GuideRNA.identity.get(), SBOL_ACCESS_PUBLIC, SBOL_DIRECTION_IN);
+    FunctionalComponent& target_protein = *new FunctionalComponent(BASE_URI, "target_protein", v, TargetProtein.identity.get(), SBOL_ACCESS_PUBLIC, SBOL_DIRECTION_OUT);
+
+    FunctionalComponent& cas9_mbfp = *new FunctionalComponent(BASE_URI, "cas9_mbfp", v, Cas9mBFP.identity.get(), SBOL_ACCESS_PUBLIC, SBOL_DIRECTION_OUT);
+    FunctionalComponent& guide_rna_b = *new FunctionalComponent(BASE_URI, "guide_rna_b", v, GuideRNAb.identity.get(), SBOL_ACCESS_PUBLIC, SBOL_DIRECTION_OUT);
+    FunctionalComponent& eyfp = *new FunctionalComponent(BASE_URI, "eyfp", v, EYFP.identity.get(), SBOL_ACCESS_PUBLIC, SBOL_DIRECTION_OUT);
+
+    // Connect the modules
+    MapsTo& cas9_input = *new MapsTo(BASE_URI, "cas9_input", v, cas9.identity.get(), cas9_mbfp.identity.get(), SBOL_REFINEMENT_USE_REMOTE);
+    MapsTo& guide_rna_input = *new MapsTo(BASE_URI, "guide_rna_input", v, guide_rna.identity.get(), guide_rna_b.identity.get(), SBOL_REFINEMENT_USE_REMOTE);
+    MapsTo& eyfp_output = *new MapsTo(BASE_URI, "eyfp_output", v, target_protein.identity.get(), eyfp.identity.get(), SBOL_REFINEMENT_USE_REMOTE);
+
+    crispr_template.mapsTos.add(cas9_input);
+    crispr_template.mapsTos.add(guide_rna_input);
+    crispr_template.mapsTos.add(eyfp_output);
+    
+    // The crispr_template and crpb_circuit modules are now connected!  Note that the modules are essentially black boxes at this point -- we haven't described their internal workings yet!
+    
+    // Define the inner workings of the CRISPR_Template ModuleDefinition.  The Module contains two interactions, one for complex formation and the other for gene expression.
+    // We'll start with complex formation...
+    Interaction& Cas9ComplexFormation = *new Interaction(BASE_URI, "complex_formation", v, SBO_NONCOVALENT_BINDING);
+    Interaction& CRISPRRepression = *new Interaction(BASE_URI, "gene_inhibition", v, SBO_INHIBITION);
+    Interaction& TargetProduction = *new Interaction(BASE_URI, "target_production", v, SBO_GENETIC_PRODUCTION);
+
+    CRISPRTemplate.interactions.add(Cas9ComplexFormation);
+    CRISPRTemplate.interactions.add(CRISPRRepression);
+    CRISPRTemplate.interactions.add(TargetProduction);
+
+    // Here we represent complex formation as the reaction A + B = AB
+	Participation& A = *new Participation(BASE_URI, "A", v, "sys-bio.org/FunctionalComponent/cas9/1.0.0");
+	Participation& B = *new Participation(BASE_URI, "B", v, "sys-bio.org/FunctionalComponent/guide_rna/1.0.0");
+	Participation& AB = *new Participation(BASE_URI, "AB", v, "sys-bio.org/FunctionalComponent/cas9-guide_rna_complex/1.0.0"); // Note that this FunctionalComponent hasn't been created yet!
+    A.roles.set( SBO_REACTANT );
+    B.roles.set( SBO_REACTANT );
+    AB.roles.set( SBO_PRODUCT );
+    
+    Cas9ComplexFormation.participations.add(A);
+	Cas9ComplexFormation.participations.add(B);
+	Cas9ComplexFormation.participations.add(AB);
+
+    // Here we define gene expression
+    FunctionalComponent& target_promoter = *new FunctionalComponent(BASE_URI, "target_promoter", v, TargetPromoter.identity.get(), SBOL_ACCESS_PRIVATE, SBOL_DIRECTION_NONE);
+    FunctionalComponent& cas9_grna_complex = *new FunctionalComponent(BASE_URI, "cas9_grna_complex", v, Cas9GuideRNAComplex.identity.get(), SBOL_ACCESS_PRIVATE, SBOL_DIRECTION_NONE );
+    
+	TargetProduction.participations.create(BASE_URI, "TargetProduction/promoter", v);  // The create method is general and not specialized for every class like libSBOLj's.
+    TargetProduction.participations.create(BASE_URI, "TargetProduction/gene", v);
+    TargetProduction.participations.create(BASE_URI, "TargetProduction/gene_product", v);
+    
+    // Child objects (corresponding to black diamonds in UML) can be accessed by uri
+    TargetProduction.participations[ "sys-bio.org/Participation/TargetProduction/promoter/1.0.0" ].roles.set(SBO_PROMOTER);
+    TargetProduction.participations[ "sys-bio.org/Participation/TargetProduction/gene/1.0.0" ].roles.set(SBO_PROMOTER);
+    TargetProduction.participations[ "sys-bio.org/Participation/TargetProduction/gene_product/1.0.0" ].roles.set(SBO_PRODUCT);
+
+    // Child objects can be dereferenced by numerical index, too.
+    TargetProduction.participations[ 0 ].participant.setReference(BASE_URI, "target_promoter");
+    TargetProduction.participations[ 1 ].participant.setReference(BASE_URI, "target_gene");
+    TargetProduction.participations[ 2 ].participant.setReference(BASE_URI, "target_protein");
 	
-	Participation& p1 = Participation(BASE_URI, "A");
-	Participation& p2 = Participation(BASE_URI, "B");
-	Participation& p3 = Participation(BASE_URI, "AB");
+    CRISPRRepression.participations.create(BASE_URI, "CRISPRRepression/inhibitor", v );
+    CRISPRRepression.participations.create(BASE_URI, "CRISPRRepression/promoter", v );
 
-	p1.roles.add(SBO_REACTANT);
-	p2.roles.add(SBO_REACTANT);
-	p3.roles.add(SBO_PRODUCT);
+    CRISPRRepression.participations["sys-bio.org/Participation/CRISPRRepression/inhibitor/1.0.0"].roles.set( SBO_INHIBITOR );
+    CRISPRRepression.participations["sys-bio.org/Participation/CRISPRRepression/inhibitor/1.0.0"].participant.set( cas9_grna_complex.identity.get() ); // This syntax allows the user to set a reference using an object. This achieves the same end results as setReference
 
-	p1.participant.add(BASE_URI "/cas9");
-	p2.participant.add(BASE_URI "/guide_rna");
-	p3.participant.add(BASE_URI "/cas9-guide_rna_complex");
+    CRISPRRepression.participations["sys-bio.org/Participation/CRISPRRepression/promoter/1.0.0"].roles.set( SBO_PROMOTER );
+    CRISPRRepression.participations["sys-bio.org/Participation/CRISPRRepression/promoter/1.0.0"].participant.set( target_promoter.identity.get() );
 
-	Cas9ComplexFormation.participations.add(p1);
-	Cas9ComplexFormation.participations.add(p2);
-	Cas9ComplexFormation.participations.add(p3);
+    // Iterate through objects (black diamond properties in UML)
+    for( auto i_p = Cas9ComplexFormation.participations.begin(); i_p != Cas9ComplexFormation.participations.end(); i_p++)
+    {
+        Participation& p = (*i_p);
+        cout << p.identity.get() << endl;
+        cout << p.roles.get() << endl;
+    }
+    
+    // Iterate through references (white diamond properties in UML)
+    AB.roles.add(SBO "0000253");  // Appends the synonymous SBO term "non-covalent complex" to the list of roles for this Participation
+    for (auto i_role = AB.roles.begin(); i_role != AB.roles.end(); i_role++)
+    {
+        string role = *i_role;
+        cout << role << endl;
+    }
+    
+    // Specify the order of abstract genetic components using SequenceConstraints
+    TargetPromoter.sequenceConstraints.create(BASE_URI, "0", v);
+    TargetPromoter.sequenceConstraints[0].subject.setReference( BASE_URI, "TargetPromoter", v );
+    TargetPromoter.sequenceConstraints[0].object.setReference( BASE_URI, "TargetGene", v );
+    TargetPromoter.sequenceConstraints[0].restriction.set( SBOL_RESTRICTION_PRECEDES );
+    
+    // CRPbCircuit Module
+    Sequence& CRPbPromoterSeq = *new Sequence(BASE_URI, "CRPbPromoterSeq", v, "GCTCCGAATTTCTCGACAGATCTCATGTGATTACGCCAAGCTACGGGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTACTGTCCTCCGAGCGGAGTTCTGTCCTCCGAGCGGAGACTCTAGATACCTCATCAGGAACATGTTGGAATTCTAGGCGTGTACGGTGGGAGGCCTATATAAGCAGAGCTCGTTTAGTGAACCGTCAGATCGCCTCGAGTACCTCATCAGGAACATGTTGGATCCAATTCGACC", SBOL_ENCODING_IUPAC);
+    CRPbPromoter.sequence.set( CRPbPromoterSeq.identity.get() );  // Set reference to Sequences.  Sequences are automatically added to the Document.  Careful though!  If the parent ComponentDefinition isn't already attached to a Document, the Sequence can't be added either
+    Sequence& seq = *new Sequence(BASE_URI, "EYFPSequence", v, "atggtgagcaagggcgaggagctgttcaccggggtggtgcccatcctggtcgagctggacggcgacgtaaacggccacaagttcagcgtgtccggcgagggcgagggcgatgccacctacggcaagctgaccctgaagttcatctgcaccaccggcaagctgcccgtgccctggcccaccctcgtgaccaccttcggctacggcctgcaatgcttcgcccgctaccccgaccacatgaagctgcacgacttcttcaagtccgccatgcccgaaggctacgtccaggagcgcaccatcttcttcaaggacgacggcaactacaagacccgcgccgaggtgaagttcgagggcgacaccctggtgaaccgcatcgagctgaagggcatcgacttcaaggaggacggcaacatcctggggcacaagctggagtacaactacaacagccacaacgtctatatcatggccgacaagcagaagaacggcatcaaggtgaacttcaagatccgccacaacatcgaggacggcagcgtgcagctcgccgaccactaccagcagaacacccccatcggcgacggccccgtgctgctgcccgacaaccactacctgagctaccagtccgccctgagcaaagaccccaacgagaagcgcgatcacatggtcctgctggagttcgtgaccgccgccgggatcactctcggcatggacgagctgtacaagtaataa", SBOL_ENCODING_IUPAC);
+    EYFPGene.sequence.set(seq.identity.get());
+    doc.add<Sequence>(seq);
 
-	Interaction& EYFP_production = Interaction(BASE_URI, "target_production");
-	EYFP_production.types.add(SBO_GENETIC_PRODUCTION);
-	CRISPR_Template.interactions.add(EYFP_production);
+    doc.write("CRISPR_example.xml");
+    doc.read("CRISPR_example.xml");
+    doc.write("CRISPR_example2.xml");
 
-	EYFP_production.participations.create(BASE_URI "promoter");
-	EYFP_production.participations.get(BASE_URI "promoter").roles.add(SBO_PROMOTER);
-	EYFP_production.participations.create(BASE_URI "gene_product");
-	EYFP_production.participations.get(BASE_URI "gene_product").roles.add(SBO_PRODUCT);
-
-	EYFP_production.participations.get(BASE_URI "promoter").participant.add(BASE_URI "crpb_target_promoter");
-	EYFP_production.participations.get(BASE_URI "gene").participant.add(BASE_URI "/target_gene/1.0.0");
-
-	
-
-	doc.write("CRISPR_example.xml");
-	return 0;
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/#"
+   xmlns:host_context="sys-bio.org/HostContext#"
+   xmlns:prov="http://www.w3.org/ns/prov#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:sbol="http://sbols.org/v2#">
+  <host_context:Host rdf:about="sys-bio.org/BB1">
+    <sbol:persistentIdentity rdf:resource="sys-bio.org/BB1"/>
+    <host_context:generation>1</host_context:generation>
+    <host_context:medium rdf:resource="www.ebi.ac.uk/efo/EFO_0000579"/>
+    <host_context:vendorId>sigmaaldrich.com/L2542</host_context:vendorId>
+  </host_context:Host>
+  <sbol:ModuleDefinition rdf:about="sys-bio.org/CRISPRTemplate">
+    <sbol:persistentIdentity rdf:resource="sys-bio.org/CRISPRTemplate"/>
+  </sbol:ModuleDefinition>
+  <sbol:ModuleDefinition rdf:about="sys-bio.org/CRPbCircuit">
+    <sbol:persistentIdentity rdf:resource="sys-bio.org/CRPbCircuit"/>
+  </sbol:ModuleDefinition>
+</rdf:RDF>

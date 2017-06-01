@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:prov="http://www.w3.org/ns/prov#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:sbol="http://sbols.org/v2#">
+  <sbol:SearchQuery rdf:about="http://sys-bio.org/SearchQuery/example/1.0.0">
+    <sbol:limit>25</sbol:limit>
+    <sbol:objectType rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+    <sbol:offset>0</sbol:offset>
+    <sbol:role>http://identifiers.org/so/SO:0000167</sbol:role>
+  </sbol:SearchQuery>
+</rdf:RDF>

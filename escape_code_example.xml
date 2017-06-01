@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<rdf:RDF xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sbol="http://sbols.org/v2#" xmlns:dcterms="http://purl.org/dc/terms/">
+  <sbol:ComponentDefinition rdf:about="http://www.async.ece.utah.edu/lac_UV5_promoter_003">
+    <sbol:persistentIdentity rdf:resource="http://www.async.ece.utah.edu/lac_UV5_promoter_003"/>
+    <sbol:displayId>lac_UV5_promoter_003</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="http://genocad.org/SBOL/doi:10.6084/m9.figshare.1159038/Part:lac_UV5_promoter-003"/>
+    <dcterms:title>lac UV5 promoter-003</dcterms:title>
+    <dcterms:description>E. coli lac promoter with an ""up"" mutation</dcterms:description>
+    <sbol:type rdf:resource="http://identifiers.org/so/SO:0000987"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
+    <sbol:sequence rdf:resource="http://www.async.ece.utah.edu/Part_lac_UV5_promoter_003_seq"/>
+  </sbol:ComponentDefinition>
+</rdf:RDF>

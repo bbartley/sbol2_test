@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:igem="http://igem.org#"
+   xmlns:prov="http://www.w3.org/ns/prov#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:sbol="http://sbols.org/v2#">
+  <igem:TestClass rdf:about="http://sys-bio.org/TestClass/test/1.0.0">
+    <igem:part rdf:resource="http://sys-bio.org/ComponentDefinition/My_component/1.0.0"/>
+    <igem:transcription_rate>0.75</igem:transcription_rate>
+    <sbol:displayId>test</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/TestClass/test"/>
+    <sbol:version>1.0.0</sbol:version>
+  </igem:TestClass>
+</rdf:RDF>

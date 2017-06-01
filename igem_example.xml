@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:igem="http://igem.org#"
+   xmlns:prov="http://www.w3.org/ns/prov#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:sbol="http://sbols.org/v2#">
+  <sbol:ComponentDefinition rdf:about="http://sys-bio.org/ComponentDefinition/My_component/1.0.0">
+    <igem:notes>This component works in E. coli</igem:notes>
+    <igem:partStatus>Available</igem:partStatus>
+    <igem:results rdf:resource="http://synbiohub.org/igem/results/Works"/>
+    <dcterms:source>This component was isolated from B. subtilis</dcterms:source>
+    <sbol:displayId>My_component</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://sys-bio.org/ComponentDefinition/My_component"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:version>1.0.0</sbol:version>
+  </sbol:ComponentDefinition>
+</rdf:RDF>
